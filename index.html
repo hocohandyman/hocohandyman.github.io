@@ -55,6 +55,19 @@
             flex-direction: column;
         }
 
+        /* New layout classes for inline alignment */
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Space between logo image and text */
+        }
+
+        .logo-img {
+            height: 40px; /* Forces the image to be small and clean */
+            width: auto;
+            object-fit: contain;
+        }
+
         .logo-text {
             font-size: 24px;
             font-weight: 800;
@@ -66,6 +79,7 @@
             font-size: 12px;
             color: var(--secondary);
             font-weight: 600;
+            margin-top: 2px;
         }
 
         .nav-btn {
@@ -125,6 +139,7 @@
         .services-section {
             padding: 80px 0;
             background-color: var(--white);
+            scroll-margin-top: 80px; /* Prevents sticky header from overlapping when clicking link */
         }
 
         .section-title {
@@ -222,6 +237,9 @@
             .hero p { font-size: 18px; }
             .contact-box { padding: 25px; }
             .contact-link { font-size: 18px; }
+            .logo-group { gap: 8px; }
+            .logo-img { height: 32px; }
+            .logo-text { font-size: 20px; }
         }
     </style>
 </head>
@@ -231,11 +249,14 @@
     <header>
         <div class="container nav-container">
             <div class="logo-area">
-                <img src="Logo_v_3_1.png" alt="HoCo Handyman Logo">
-                <a href="#" class="logo-text">HoCo Handyman, LLC</a>
+                <div class="logo-group">
+                    <img src="Logo_v_1.png" alt="HoCo Handyman Logo" class="logo-img">
+                    <a href="#" class="logo-text">HoCo Handyman, LLC</a>
+                </div>
                 <span class="license-badge">MHIC #168588 · Licensed in MD</span>
             </div>
-            <a href="#contact" class="nav-btn">See Services</a>
+            <!-- Updated link target -->
+            <a href="#services" class="nav-btn">See Services</a>
         </div>
     </header>
 
@@ -245,7 +266,6 @@
             <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 14px; color: var(--accent); font-weight: 700; margin-bottom: 10px;">Licensed · MHIC #168588</p>
             <h1>Part-time Handyman Work for Your Home</h1>
             <p>Part-time handyman work to assist you with small projects around your home.</p>
-            
             <div class="features">
                 <span class="feature-tag">Insured & Licensed</span>
                 <span class="feature-tag">Local to Howard County</span>
@@ -255,29 +275,26 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services-section">
+    <!-- Added id="services" to connect the button click -->
+    <section id="services" class="services-section">
         <div class="container">
             <div class="section-title">
                 <h2>What I Do</h2>
                 <p>Services Built Around Your Home</p>
             </div>
-            
             <div class="grid">
                 <div class="card">
                     <h3>Carpentry & Repairs</h3>
                     <p>Trim, interior doors, and finish carpentry.</p>
                 </div>
-                
                 <div class="card">
                     <h3>Mounting & Installation</h3>
                     <p>TVs, shelving, blinds, and hardware.</p>
                 </div>
-                
                 <div class="card">
                     <h3>Home Maintenance & Yard Work</h3>
                     <p>Drywall patches, caulking, yard clean-up, and seasonal tune-ups.</p>
                 </div>
-                
                 <div class="card">
                     <h3>Honey-Do Lists</h3>
                     <p>Have a bunch of odd jobs? Send me the list and let's sort them out.</p>
@@ -292,10 +309,8 @@
             <div class="contact-box">
                 <h2>Ready to Cross It Off the List?</h2>
                 <p>Tell me about your project and I'll get back with a free estimate.</p>
-                
                 <a href="tel:4432194666" class="contact-link">Call or Text 443-219-4666</a>
                 <a href="mailto:info@hocohandyman.com" class="contact-link">info@hocohandyman.com</a>
-                
                 <div class="meta-info">
                     <p><strong>Service Area:</strong> Howard County, MD</p>
                 </div>
