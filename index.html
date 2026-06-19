@@ -102,24 +102,34 @@
             opacity: 0.9;
         }
 
+        /* Centered Hero Logo Setup */
+        .hero-logo {
+            max-height: 120px;
+            width: auto;
+            object-fit: contain;
+            margin: 15px auto 25px auto;
+            display: block;
+        }
+
         .hero-btn-container {
             margin-top: 25px;
         }
 
+        /* Accent Colored Action Button */
         .nav-btn {
             display: inline-block;
-            background-color: var(--secondary);
-            color: var(--white);
-            padding: 12px 28px;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 12px 36px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
         }
 
         .nav-btn:hover {
-            background-color: #1d4ed8;
+            background-color: #e08e06;
             transform: translateY(-1px);
         }
 
@@ -219,6 +229,18 @@
             background-color: var(--accent);
         }
 
+        /* Contact Details Meta Block adjustment */
+        .contact-meta-info {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
         /* Footer */
         footer {
             background-color: #0b1120; 
@@ -241,6 +263,7 @@
             .header-text-center { padding-right: 50px; }
             .logo-text { font-size: 18px; }
             .license-badge { font-size: 11px; }
+            .hero-logo { max-height: 90px; }
         }
     </style>
 </head>
@@ -261,7 +284,10 @@
     <section class="hero">
         <div class="container">
             <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 14px; color: var(--accent); font-weight: 700; margin-bottom: 10px;">Licensed · MHIC #168588</p>
-            <h1>Part-time Handyman Work for Your Home</h1>
+            
+            <!-- Added Centered Hero Logo -->
+            <img src="Logo_v_3_1.png" alt="HoCo Handyman Logo" class="hero-logo">
+            
             <p>Part-time handyman work to assist you with small projects around your home.</p>
             
             <div class="hero-btn-container">
