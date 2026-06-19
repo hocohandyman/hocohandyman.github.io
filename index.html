@@ -3,166 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoCo Handyman LLC | Home Improvement & Repairs</title>
-    <meta name="description" content="Professional and reliable handyman services in Ellicott City, MD. MHIC # 168588">
+    <title>HoCo Handyman LLC | Howard County, MD</title>
     <style>
-        /* Base Reset & Typography */
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --accent: #f59e0b;
+            --text: #334155;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Navigation */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        .navbar .logo img {
-            max-width: 150px;
-            height: auto;
-        }
-        .nav-links {
+
+        .nav-container {
             display: flex;
-            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
         }
-        .nav-links li {
-            margin-left: 20px;
+
+        .logo-area {
+            display: flex;
+            flex-direction: column;
         }
-        .nav-links a {
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
-            color: #0d233a;
-            font-weight: 600;
-            transition: color 0.3s ease;
         }
-        .nav-links a:hover {
-            color: #e67e22; /* Accent color */
+
+        .license-badge {
+            font-size: 12px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .nav-btn {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: #1d4ed8;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg') center/cover no-repeat;
-            color: #fff;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: var(--white);
+            padding: 80px 0;
             text-align: center;
-            padding: 100px 20px;
         }
+
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
         }
+
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
         }
-        .cta-button {
-            display: inline-block;
-            background-color: #e67e22;
-            color: #fff;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+
+        /* Features Badges */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
         }
-        .cta-button:hover {
-            background-color: #d46a17;
+
+        .feature-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* Services Section */
-        .services {
-            padding: 60px 5%;
-            background-color: #f9f9f9;
+        .services-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
             text-align: center;
+            margin-bottom: 50px;
         }
-        .services h2 {
-            margin-bottom: 40px;
-            color: #0d233a;
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
-        .services-grid {
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-        .service-card {
-            background: #fff;
+
+        .card {
+            background: var(--light);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
         /* Contact Section */
-        .contact {
-            padding: 60px 5%;
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--light);
             text-align: center;
-        }
-        .contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .contact input, .contact textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact button {
-            background-color: #0d233a;
-            color: #fff;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
         }
 
-        /* Business Footer */
-        .business-footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-            background-color: #f4f4f4;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            border-top: 1px solid #ddd;
+        .contact-box {
+            background: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
-        .business-logo {
-            max-width: 200px;
-            height: auto;
+
+        .contact-box h2 {
+            font-size: 28px;
+            color: var(--primary);
             margin-bottom: 15px;
         }
-        .license-number {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #0d233a;
-            letter-spacing: 0.5px;
+
+        .contact-box p {
+            margin-bottom: 30px;
+        }
+
+        .contact-link {
+            display: block;
+            font-size: 22px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        .meta-info {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: #94a3b8;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 18px; }
+            .contact-box { padding: 25px; }
+            .contact-link { font-size: 18px; }
         }
     </style>
 </head>
 <body>
 
-   
- 
-    <!-- Business Footer -->
-    <footer class="business-footer">
-        <img src="Logo_v_3_1.png" alt="HoCo Handyman LLC Logo" class="business-logo">
-        <p class="license-number">MHIC # 168588</p>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <a href="#" class="logo-text">HoCo Handyman</a>
+                <span class="license-badge">MHIC #168588 · Licensed in MD</span>
+            </div>
+            <a href="#contact" class="nav-btn">See Services</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 14px; color: var(--accent); font-weight: 700; margin-bottom: 10px;">Licensed · MHIC #168588</p>
+            <h1>Part-time Handyman Work for Your Home</h1>
+            <p>Part-time handyman work to assist you with small projects around your home.</p>
+            
+            <div class="features">
+                <span class="feature-tag">Insured & Licensed</span>
+                <span class="feature-tag">Local to Howard County</span>
+                <span class="feature-tag">Upfront Pricing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What I Do</h2>
+                <p>Services Built Around Your Home</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Carpentry & Repairs</h3>
+                    <p>Trim, interior doors, and finish carpentry.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Mounting & Installation</h3>
+                    <p>TVs, shelving, blinds, and hardware.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Home Maintenance & Yard Work</h3>
+                    <p>Drywall patches, caulking, yard clean-up, and seasonal tune-ups.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Honey-Do Lists</h3>
+                    <p>Have a bunch of odd jobs? Send me the list and let's sort them out.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Ready to Cross It Off the List?</h2>
+                <p>Tell me about your project and I'll get back with a free estimate.</p>
+                
+                <a href="tel:4432194666" class="contact-link">Call or Text 443-219-4666</a>
+                <a href="mailto:ghelicke@hocohandyman.com" class="contact-link">ghelicke@hocohandyman.com</a>
+                
+                <div class="meta-info">
+                    <p><strong>Service Area:</strong> Howard County, MD</p>
+                    <p>Typically responds same day</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 HoCo Handyman LLC. All rights reserved.</p>
+            <p>MHIC #168588 · Licensed in Maryland</p>
+        </div>
     </footer>
 
 </body>
