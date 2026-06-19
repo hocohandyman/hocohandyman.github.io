@@ -80,7 +80,28 @@
             margin-top: 4px;
         }
 
-        /* Hero Section Button */
+        /* Hero & Contact Section Shared Styling */
+        .hero, .contact-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1, .contact-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero p, .contact-section p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 10px auto;
+            opacity: 0.9;
+        }
+
         .hero-btn-container {
             margin-top: 25px;
         }
@@ -102,28 +123,7 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            color: var(--white);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 600px;
-            margin: 0 auto 10px auto;
-            opacity: 0.9;
-        }
-
-        /* Features Badges */
+        /* Shared Features / Contact Badges */
         .features {
             display: flex;
             justify-content: center;
@@ -139,6 +139,13 @@
             font-size: 14px;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        a.feature-tag:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Services Section */
@@ -212,58 +219,14 @@
             background-color: var(--accent);
         }
 
-        /* Contact Section */
-        .contact-section {
-            padding: 80px 0;
-            background-color: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            text-align: center;
-        }
-
-        .contact-box {
-            background: var(--white);
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-box h2 {
-            font-size: 28px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            margin-bottom: 30px;
-        }
-
-        .contact-link {
-            display: block;
-            font-size: 22px;
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 700;
-            margin: 15px 0;
-        }
-
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-
-        .meta-info {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #64748b;
-        }
-
         /* Footer */
         footer {
-            background-color: var(--primary);
+            background-color: #0b1120; 
             color: #94a3b8;
             padding: 40px 0;
             text-align: center;
             font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         footer p {
@@ -272,10 +235,8 @@
 
         /* Responsive Breakpoint */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 18px; }
-            .contact-box { padding: 25px; }
-            .contact-link { font-size: 18px; }
+            .hero h1, .contact-section h2 { font-size: 32px; }
+            .hero p, .contact-section p { font-size: 18px; }
             .logo-img { height: 50px; }
             .header-text-center { padding-right: 50px; }
             .logo-text { font-size: 18px; }
@@ -339,18 +300,19 @@
                     <h3><span class="card-icon icon-list"></span>Honey-Do Lists</h3>
                     <p>Have a bunch of odd jobs? Send me the list and lets sort them out.</p>
                 </div>
-                <div class="card">
+            </div>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
+    <!-- Contact Section structured exactly like Hero Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="contact-box">
-                <h2>Ready to Cross It Off the List?</h2>
-                <p>Tell me about your project and I'll get back with a free estimate.</p>
-                
-                <a href="tel:4432194666" class="contact-link">Call or Text 443-219-4666</a>
-                <a href="mailto:ghelicke@hocohandyman.com" class="contact-link">ghelicke@hocohandyman.com</a>
-                
+            <h2>Ready to Cross It Off the List?</h2>
+            <p>Tell me about your project and I'll get back with a free estimate.</p>
+            
+            <div class="features">
+                <a href="tel:4432194666" class="feature-tag">Call or Text 443-219-4666</a>
+                <a href="mailto:ghelicke@://hocohandyman.com" class="feature-tag">Email ghelicke@hocohandyman.com</a>
                 <div class="meta-info">
                     <p><strong>Service Area:</strong> Howard County, MD</p>
                 </div>
