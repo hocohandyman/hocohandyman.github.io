@@ -350,14 +350,11 @@
       </style>
 
       <div class="cf-wrap">
-        <form action="https://api.web3forms.com/submit" method="POST">
+        <form id="cf-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="f4c2b307-ad65-4d80-9805-bdbcde37b767">
 
           <!-- Controls the email subject line you'll receive -->
           <input type="hidden" name="subject" value="New Customer Request">
-
-          <!-- 3) Optional: redirect visitors to a thank-you page after submitting -->
-          <!-- <input type="hidden" name="redirect" value="https://yoursite.com/thank-you.html"> -->
 
           <!-- Honeypot spam trap - leave this as-is, keep it hidden via CSS -->
           <input type="checkbox" name="botcheck" class="cf-hidden" style="display:none">
@@ -396,9 +393,57 @@
             </div>
           </div>
 
-          <button type="submit" class="cf-submit">Send message</button>
+          <div id="cf-error" class="hidden" style="color:#fca5a5; font-size:0.875rem; font-weight:600; margin-bottom:0.75rem; text-align:center;">
+            Something went wrong sending your message. Please try again, or text/call us directly.
+          </div>
+
+          <button type="submit" id="cf-submit-btn" class="cf-submit">Send message</button>
         </form>
+
+        <div id="cf-success" class="hidden" style="text-align:center; padding:1rem 0;">
+          <div style="width:56px; height:56px; border-radius:9999px; background:var(--cf-amber); display:flex; align-items:center; justify-content:center; margin:0 auto 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="var(--cf-ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="color:var(--cf-ink); font-weight:800; font-size:1.15rem; margin-bottom:0.5rem;">Request sent!</h3>
+          <p style="color:var(--cf-muted); font-size:0.95rem;">Thanks for reaching out. We'll get back to you shortly.</p>
+        </div>
       </div>
+
+      <script>
+        (function () {
+          const form = document.getElementById('cf-form');
+          const submitBtn = document.getElementById('cf-submit-btn');
+          const errorBox = document.getElementById('cf-error');
+          const successBox = document.getElementById('cf-success');
+
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            errorBox.classList.add('hidden');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+              const res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+              });
+              const data = await res.json();
+
+              if (data.success) {
+                form.classList.add('hidden');
+                successBox.classList.remove('hidden');
+              } else {
+                throw new Error(data.message || 'Submission failed');
+              }
+            } catch (err) {
+              errorBox.classList.remove('hidden');
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send message';
+            }
+          });
+        })();
+      </script>
 
       <div class="flex flex-col sm:flex-row justify-center gap-5 mb-10">
 
